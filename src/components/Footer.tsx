@@ -22,6 +22,7 @@ const columns = [
   },
 ];
 
+
 export function Footer() {
   return (
     <footer className="bg-navy">
