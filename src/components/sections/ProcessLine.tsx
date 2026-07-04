@@ -1,8 +1,13 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useActiveStep } from "@/components/sections/ProcessTimeline";
 
-export function ProcessLine() {
+export function ProcessLine({ total }: { total: number }) {
+  const activeStep = useActiveStep();
+  const progress =
+    activeStep < 0 ? 0 : Math.min(activeStep, total - 1) / (total - 1);
+
   return (
     <div
       aria-hidden
@@ -11,10 +16,8 @@ export function ProcessLine() {
       <div className="absolute inset-0 border-t-2 border-dashed border-border" />
       <motion.div
         className="absolute inset-0 origin-left border-t-4 border-solid border-primary"
-        initial={{ scaleX: 0 }}
-        whileInView={{ scaleX: 1 }}
-        viewport={{ once: true, margin: "-100px" }}
-        transition={{ duration: 1.4, ease: "easeInOut" }}
+        animate={{ scaleX: progress }}
+        transition={{ duration: 0.9, ease: "easeInOut" }}
       />
     </div>
   );
