@@ -16,6 +16,7 @@ jobs:
           key: ${{ secrets.VPS_SSH_KEY }}
           port: ${{ secrets.VPS_PORT }}
           script: |
+            export PATH=/home/sumit/.nvm/versions/node/v20.20.2/bin:$PATH
             cd /home/sumit/apps/rawgems/RawGemsv1
             git pull origin main
             npm install
