@@ -15,9 +15,9 @@ jobs:
           username: ${{ secrets.VPS_USER }}
           key: ${{ secrets.VPS_SSH_KEY }}
           port: ${{ secrets.VPS_PORT }}
-        script: |
-          cd /home/sumit/apps/rawgems/RawGemsv1
-          git pull origin main
-          npm install
-          npm run build
-          pm2 reload rawgems-web --update-env
+          script: |
+            cd /home/sumit/apps/rawgems/RawGemsv1
+            git pull origin main
+            npm install
+            npm run build
+            pm2 reload rawgems-web --update-env
