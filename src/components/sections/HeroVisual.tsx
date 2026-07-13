@@ -1,54 +1,54 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Play, Code2, Sparkles, Cloud, Smartphone } from "lucide-react";
+import { Code2, Cloud, Cpu, Database, Smartphone, Share2, Zap, Gem } from "lucide-react";
 
-const floatingIcons = [
-  { Icon: Code2, className: "-top-4 -left-4 bg-primary", duration: 5, delay: 0 },
-  { Icon: Sparkles, className: "-top-4 -right-4 bg-accent-violet", duration: 6, delay: 0.4 },
-  { Icon: Cloud, className: "-bottom-4 -left-4 bg-accent-teal", duration: 5.5, delay: 0.8 },
-  { Icon: Smartphone, className: "-bottom-4 -right-4 bg-accent-amber", duration: 6.5, delay: 0.2 },
+const techIcons = [
+  { Icon: Code2, className: "top-[0%] left-1/2 -translate-x-1/2", delay: 0.2 },
+  { Icon: Zap, className: "top-[16%] left-[10%]", delay: 0.5 },
+  { Icon: Cpu, className: "top-[16%] right-[10%]", delay: 0.8 },
+  { Icon: Share2, className: "top-1/2 left-[0%] -translate-y-1/2", delay: 0.35 },
+  { Icon: Database, className: "top-1/2 right-[0%] -translate-y-1/2", delay: 0.65 },
+  { Icon: Cloud, className: "bottom-[10%] left-[14%]", delay: 0.95 },
+  { Icon: Smartphone, className: "bottom-[10%] right-[14%]", delay: 1.1 },
 ];
 
-// TODO: replace this illustrated placeholder with a real team photo or product demo video
 export function HeroVisual() {
   return (
-    <div className="relative mx-auto w-full max-w-md">
+    <div className="relative mx-auto flex h-[440px] w-full max-w-lg items-center justify-center">
       <motion.div
-        initial={{ opacity: 0, scale: 0.95 }}
+        aria-hidden
+        className="absolute h-[85%] w-[85%] rounded-full bg-primary/10"
+        initial={{ opacity: 0, scale: 0.9 }}
         animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+      />
+
+      <motion.div
+        initial={{ opacity: 0, y: 16 }}
+        animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7, ease: "easeOut" }}
-        className="relative aspect-4/3 overflow-hidden rounded-3xl border border-border bg-gradient-to-br from-primary via-primary-dark to-accent-violet shadow-2xl shadow-primary/20"
       >
-        <div
-          aria-hidden
-          className="absolute inset-0 opacity-20 [background-image:radial-gradient(circle_at_1px_1px,white_1px,transparent_0)] [background-size:20px_20px]"
-        />
-        <div className="absolute inset-0 flex items-center justify-center">
-          <motion.button
-            type="button"
-            aria-label="Play showreel"
-            className="flex h-16 w-16 items-center justify-center rounded-full bg-white text-primary shadow-lg"
-            whileHover={{ scale: 1.08 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <Play className="h-6 w-6 translate-x-0.5 fill-current" />
-          </motion.button>
-        </div>
+        <motion.div
+          animate={{ y: [0, -12, 0] }}
+          transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+        >
+          <Gem className="h-44 w-44 text-primary drop-shadow-2xl sm:h-52 sm:w-52" />
+        </motion.div>
       </motion.div>
 
-      {floatingIcons.map(({ Icon, className, duration, delay }, i) => (
+      {techIcons.map(({ Icon, className, delay }, i) => (
         <motion.div
           key={i}
-          className={`absolute flex h-12 w-12 items-center justify-center rounded-xl text-white shadow-lg ${className}`}
-          initial={{ opacity: 0, y: 0 }}
+          className={`absolute flex h-14 w-14 items-center justify-center rounded-2xl bg-primary text-foreground shadow-lg ${className}`}
+          initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: [0, -8, 0] }}
           transition={{
-            opacity: { duration: 0.5, delay: 0.4 + delay },
-            y: { duration, repeat: Infinity, ease: "easeInOut", delay },
+            opacity: { duration: 0.6, delay },
+            y: { duration: 5, repeat: Infinity, ease: "easeInOut", delay },
           }}
         >
-          <Icon className="h-5 w-5" />
+          <Icon className="h-6 w-6" />
         </motion.div>
       ))}
     </div>

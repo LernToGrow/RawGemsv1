@@ -7,8 +7,6 @@ const THEMES = [
   { id: "gold", name: "Gold & Cream", swatch: "#c08829" },
   { id: "purple", name: "Purple & Magenta", swatch: "#7c3aed" },
   { id: "coral", name: "Sunset Coral", swatch: "#f2542d" },
-  { id: "berry", name: "Berry Bloom", swatch: "#be185d" },
-  { id: "mono", name: "Black & White", swatch: "#18181b" },
 ] as const;
 
 type ThemeId = (typeof THEMES)[number]["id"];
@@ -61,14 +59,14 @@ export function ThemeSwitcher() {
           className="h-2.5 w-2.5 rounded-full"
           style={{ background: current.swatch }}
         />
-        <span className="hidden sm:inline">{current.name}</span>
+        <span className="sr-only">{current.name}</span>
         <ChevronDown className={`h-3.5 w-3.5 text-muted transition-transform ${open ? "rotate-180" : ""}`} />
       </button>
 
       {open && (
         <div
           role="listbox"
-          className="absolute right-0 z-50 mt-2 w-56 overflow-hidden rounded-xl border border-border bg-surface shadow-lg"
+          className="absolute right-0 z-50 mt-2 w-28 overflow-hidden rounded-xl border border-border bg-surface shadow-lg"
         >
           <p className="border-b border-border px-4 py-2 text-xs font-semibold uppercase tracking-wide text-muted">
             Preview a theme
@@ -86,7 +84,7 @@ export function ThemeSwitcher() {
                 className="h-3 w-3 shrink-0 rounded-full"
                 style={{ background: t.swatch }}
               />
-              <span className="flex-1">{t.name}</span>
+              <span className="flex-1 sr-only">{t.name}</span>
               {t.id === theme && <Check className="h-4 w-4 text-primary" />}
             </button>
           ))}

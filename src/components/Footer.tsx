@@ -76,10 +76,10 @@ export function Footer() {
             © {new Date().getFullYear()} RawGems. All rights reserved.
           </p>
           <div className="flex gap-6 text-sm text-white/60">
-            {/* TODO: replace with real phone number */}
-            <span>+91 12345 67890</span>
-            <Link href="mailto:hello@rawgems.in" className="hover:text-white">
-              hello@rawgems.in
+            <span>+91 7709 985032</span>
+            <span>+91 7709 832167</span>
+            <Link href="mailto:rawgems.in@gamil.com" className="hover:text-white">
+              rawgems.in@gamil.com
             </Link>
           </div>
         </div>

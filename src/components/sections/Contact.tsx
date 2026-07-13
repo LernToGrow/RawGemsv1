@@ -2,9 +2,13 @@ import { Phone, Mail, MapPin } from "lucide-react";
 import { Reveal } from "@/components/ui/Reveal";
 
 const contactDetails = [
-  { Icon: Phone, label: "+91 12345 67890" }, // TODO: replace with real phone number
-  { Icon: Mail, label: "hello@rawgems.in" },
-  { Icon: MapPin, label: "India" }, // TODO: replace with real address
+  { Icon: Phone, label: "+91 7709 985 032" },
+  { Icon: Phone, label: "+91 7709 832167" },
+  { Icon: Mail, label: "rawgems.in@gamil.com" },
+  {
+    Icon: MapPin,
+    label: "104, Maple Heights, Arera Colony, Bhopal, Madhya Pradesh 462016, India",
+  },
 ];
 
 export function Contact() {

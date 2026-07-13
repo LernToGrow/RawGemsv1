@@ -35,9 +35,9 @@ export function Header() {
           ))}
         </nav>
         <div className="flex items-center gap-3">
-          <Button href="#contact" className="hidden sm:inline-flex">
-            Contact Us
-          </Button>
+          <span className="hidden sm:inline-flex">
+            <Button href="#contact">Contact Us</Button>
+          </span>
           <ThemeSwitcher />
         </div>
       </div>

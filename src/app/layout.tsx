@@ -56,9 +56,8 @@ const organizationJsonLd = {
   sameAs: [] as string[],
   contactPoint: {
     "@type": "ContactPoint",
-    // TODO: replace with real phone number
-    telephone: "+91-12345-67890",
-    email: "hello@rawgems.in",
+    telephone: "+91-7709-985032",
+    email: "rawgems.in@gamil.com",
     contactType: "sales",
   },
 };
